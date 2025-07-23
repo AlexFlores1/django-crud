@@ -1,0 +1,26 @@
+{% extends "layout/base.html" %}
+{% block title %}
+To-Do
+{% endblock title %}
+
+{% block content %}
+<form action="{% url "todo" %}" method="GET" class="search">
+    <input type="text" name="search" class="search-bar" placeholder="Buscar contacto...">
+    <input type="submit" class="search-btn" value="Buscar">
+</form>
+<span><a class="btn btn-secondary" href="{% url "contact" %}"> Ver todos </a> <a class="btn btn-success" href="{% url "todo_create" %}">añadir</a></span>
+<hr>
+    <ul class="lista">
+        {% for i in todo  %}
+            <li>{{i.title}} 
+                <span> 
+                <a href="{% url "todo_view" id=i.id %}" class="btn btn-primary">Detail</a>
+                <a href="{% url "todo_edit" id=i.id %}" class="btn btn-info">Editar</a>
+                
+                <a href="{% url "delete" id=i.id %}" class="btn btn-danger">Borrar</a>
+                </span>
+            </li>
+        {% endfor %}
+
+    </ul>
+{% endblock content %}

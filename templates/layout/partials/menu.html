@@ -1,0 +1,15 @@
+<nav>
+    <ul>
+        
+        {% if user.is_authenticated %}
+            <li><a href="{% url "index" %}">Inicio</a></li>
+            <li><a href="{% url "contact" %}">Contactos</a></li>
+            <li><a href="{% url "todo" %}">Tareas</a></li>
+            <li><a href="{% url "logout" %}">Logout</a></li>
+        {% else %}
+            <li><a href="{% url "signup" %}">Signup</a></li>
+            <li><a href="{% url "signin" %}">Signin</a></li>
+        {% endif %}
+        
+    </ul>
+</nav>

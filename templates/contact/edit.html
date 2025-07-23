@@ -1,0 +1,23 @@
+{% extends "layout/base.html" %}
+{% load static %}
+{% block title %}
+Contacto
+{% endblock title %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/form.css'%}"> 
+
+{% endblock styles %}
+{% block content %}
+
+{% endif %}
+<form action="{% url "contact_edit" id=id%}" method="post">
+    {% csrf_token %}
+    <table>
+    {{form.as_table}}
+    </table>
+    
+    <input type="submit" class="btn btn-primary"></input>
+    
+</form>
+
+{% endblock content %}

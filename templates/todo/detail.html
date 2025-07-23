@@ -1,0 +1,17 @@
+{% extends "layout/base.html" %}
+{% block title %}
+Tarea {{hw.title}}
+{% endblock title %}
+
+{% block content %}
+
+<span><a class="btn btn-secondary" href="{% url "todo" %}"> Volver </a> </span>
+    <ul class="lista">
+        <li><b>Titulo:  </b>{{hw}}</li>
+        <li><b>Descripcion:  </b>{{hw.description}}</li>
+        <li><b>Fecha Inicio:  </b>{{hw.date}}</li>
+        <li><b>Fecha Fin:  </b>{{hw.endtime}}</li>
+        <li><b>Prioridad:  </b>{{hw.priority}}</li>
+
+    </ul>
+{% endblock content %}

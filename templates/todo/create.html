@@ -1,0 +1,22 @@
+{% extends "layout/base.html" %}
+{% load static %}
+{% block title %}
+Crear Tarea
+{% endblock title %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/form.css'%}"> 
+
+{% endblock styles %}
+{% block content %}
+
+<form action="{% url "todo_create"%}" method="post">
+    {% csrf_token %}
+    <table>
+    {{form.as_table}}
+    </table>
+    
+    <input type="submit" class="btn btn-primary"></input>
+    
+</form>
+
+{% endblock content %}
